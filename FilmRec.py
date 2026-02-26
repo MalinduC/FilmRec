@@ -4,9 +4,9 @@ from collections import defaultdict
 from surprise import Reader, Dataset, SVD, KNNBasic
 
 # Load datasets
-interactions_df = pd.read_csv('C:\\Users\\malin\\Documents\\Veracity\\Film Rec\\interactions.csv')
-item_features_df = pd.read_csv('C:\\Users\\malin\\Documents\\Veracity\\Film Rec\\item_features.csv')
-user_data_df = pd.read_csv('C:\\Users\\malin\\Documents\\Veracity\\Film Rec\\user_data.csv')
+interactions_df = pd.read_csv('interactions.csv')
+item_features_df = pd.read_csv('item_features.csv')
+user_data_df = pd.read_csv('user_data.csv')
 
 # Convert user_id and movie_id to string to ensure compatibility with surprise
 interactions_df['user_id'] = interactions_df['user_id'].astype(str)
@@ -146,3 +146,6 @@ trending_movies_df = pd.merge(trending_movies_df, item_features_df[['movie_id', 
 st.subheader('Trending Movies')
 trending_movies_df = trending_movies_df.rename(columns={'title': 'Movie Title', 'first_genre': 'Genre'})
 st.dataframe(trending_movies_df[['Movie Title', 'Genre']])
+
+
+
